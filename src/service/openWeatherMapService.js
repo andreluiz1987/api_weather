@@ -3,7 +3,7 @@ const kelvinToCelsius = require('kelvin-to-celsius');
 const Weather = require("../models/weatherModel");
 
 exports.getWeather = () => {
-    let token = process.env.OPEN_WEATHER_MAP_TOKEN
+    let token = process.env[OPEN_WEATHER_MAP_TOKEN];
     let url - 'https://api.openweathermap.org/data/2.5/weather?id=2270968&appid=' + token;
     return axios.get(url)
         .then(response => {
