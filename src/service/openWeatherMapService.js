@@ -10,7 +10,7 @@ exports.getWeather = () => {
             let code = response.data.cod;
             if (code == 200) {
                 let weather = new Weather(response.data.name,
-                    kelvinToCelsius(response.data.main.temp),
+                    parseInt(kelvinToCelsius(response.data.main.temp)),
                     response.data.main.humidity);
                 return weather;
             }
