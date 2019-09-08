@@ -1,11 +1,12 @@
 const axios = require('axios');
 var fahrenheitToCelsius = require('fahrenheit-to-celsius');
 const Weather = require("../models/weatherModel");
+const { API_KEY_ACCUR_WEATHER, URL_ACCUR_WEATHER } = require('../../config');
 
 exports.getWeather = () => {
-    let token = process.env.ACCUR_WEATHER_TOKEN;
-    let url = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/44403?apikey=' + token;
-    return axios.get(url)
+    let token = API_KEY_ACCUR_WEATHER;
+    let url = URL_ACCUR_WEATHER;    
+    return axios.get(url.concat(token))
         .then(response => {
             let weather = new Weather("Belo Horizonte",
                 parseInt(fahrenheitToCelsius(response.data.DailyForecasts[0].Temperature.Maximum.Value)),

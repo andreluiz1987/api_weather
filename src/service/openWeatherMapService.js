@@ -1,11 +1,12 @@
 const axios = require('axios');
 const kelvinToCelsius = require('kelvin-to-celsius');
 const Weather = require("../models/weatherModel");
+const { API_KEY_OPEN_WEATHER, URL_OPEN_WEATHER } = require('../../config');
 
 exports.getWeather = () => {
-    let token = process.env.OPEN_WEATHER_MAP_TOKEN;	
-    let url = 'https://api.openweathermap.org/data/2.5/weather?id=2270968&appid=' + token;
-    return axios.get(url)
+    let token = API_KEY_OPEN_WEATHER;
+    let url = URL_OPEN_WEATHER;	
+    return axios.get(url.concat(token))
         .then(response => {
             let code = response.data.cod;
             if (code == 200) {

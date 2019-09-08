@@ -4,13 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node bin/server.js"
+    "start": "node bin/server.js",
+    "dev": "NODE_ENV=development nodemon bin/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "fahrenheit-to-celsius": "^1.0.0",
     "kelvin-to-celsius": "^1.1.0",
