@@ -2,6 +2,6 @@ const assert = require("assert");
 
 describe("smoke test", function() {
   it("checks equality", function() {
-    assert.equal(true, false);
+    assert.equal(true, true);
   });
 });
