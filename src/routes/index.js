@@ -1,12 +1,10 @@
 'use strict'
 
 const express = require('express');
-const router = express.Router();
+const apiRoute = require('./api');
 
-router.get('/', (req, res, next) =>{
-    res.status(200).send({
-        version: '1.0.0'
-    });
-});
+let router = express.Router();
+
+router.use('/api', apiRoute);
 
 module.exports = router;

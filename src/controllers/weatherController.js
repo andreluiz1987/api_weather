@@ -1,14 +1,9 @@
 'use scrict'
 
-const service = require('../service/weatherService');
+const service = require('../service/weather');
+const express = require('express');
+const router = express.Router();
 
-exports.getWeather = async (req, res, next) => {
-    try {
-        var data = await service.getWeather();
-        res.status(200).json(data);
-    } catch (e) {
-        res.status(500).json({
-            message: "Falha ao recuperar devices."
-        });
-    }
-};
+router.get('/temperatures', service.getWeather);
+
+module.exports = router;
