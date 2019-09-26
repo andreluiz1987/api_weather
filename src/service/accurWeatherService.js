@@ -5,7 +5,8 @@ const { API_KEY_ACCUR_WEATHER, URL_ACCUR_WEATHER } = require('../../config');
 
 exports.getWeather = () => {
     let token = API_KEY_ACCUR_WEATHER;
-    let url = URL_ACCUR_WEATHER;    
+    let url = URL_ACCUR_WEATHER;
+    
     return axios.get(url.concat(token))
         .then(response => {
             let weather = new Weather("Belo Horizonte",
